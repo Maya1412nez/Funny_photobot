@@ -1,0 +1,34 @@
+import sys
+
+from PyQt5.QtWidgets import QWidget, QApplication, QLineEdit, QPushButton, QLabel
+from PyQt5.QtGui import QIcon, QPixmap
+
+class Example(QWidget):
+    def __init__(self):
+        super(Example, self).__init__()
+
+        self.setWindowTitle("Я сделяль! :'D")
+
+    def im1(self):
+        # Create widget
+        label = QLabel(self)
+        pixmap = QPixmap('imgs\image.jpeg')
+        label.setPixmap(pixmap)
+        self.resize(pixmap.width(), pixmap.height())
+        print(pixmap.size())
+
+        self.show()
+
+    def l(self):
+        self.input_value = QLineEdit(self)
+        self.input_value.move(700, 700)
+        self.input_value.resize(200, 30)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = Example()
+    window.im1()
+    window.l()
+    window.show()
+    sys.exit(app.exec())
