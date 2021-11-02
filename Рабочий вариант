@@ -33,15 +33,42 @@ class Ui_MainWindow(object):
         # self.openGLWidget = QtWidgets.QOpenGLWidget(self.centralwidget)
         # self.openGLWidget.setGeometry(QtCore.QRect(360, 20, 240, 320))
         # self.openGLWidget.setObjectName("openGLWidget")
-        self.mainlabel = QtWidgets.QLabel(self.centralwidget)
-        self.mainlabel.setGeometry(QtCore.QRect(360, 20, 240, 320))
-        self.mainlabel.setObjectName("Main_Label")
-        print(self.mainlabel.size())
+
+        # face
+        self.mainlabel_face = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_face.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_face.setObjectName("Main_Label")
+        print(self.mainlabel_face.size())
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image = 0
-        pixmap = QPixmap('imgs\sface2.png')
-        self.mainlabel.setPixmap(pixmap)
+        name_of_image_face = 'sface1.jpg'
+        pixmap = QPixmap( f'imgs\{name_of_image_face}')
+        self.mainlabel_face.setPixmap(pixmap)
+
+        #hair
+        self.mainlabel_hair = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_hair.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_hair.setObjectName("Main_Label")
+        print(self.mainlabel_hair.size())
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_hair = 'hair1.png'
+        pixmap = QPixmap(f'imgs\{name_of_image_hair}')
+        self.mainlabel_hair.setPixmap(pixmap)
+
+        # eyes
+
+
+        # ears
+        self.mainlabel_ears = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_ears.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_ears.setObjectName("Main_Label")
+        print(self.mainlabel_ears.size())
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_ears = "ears1.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_ears}')
+        self.mainlabel_ears.setPixmap(pixmap)
 
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(310, 50, 30, 50))
