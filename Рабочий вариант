@@ -11,11 +11,11 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton
 from PyQt5.QtGui import QIcon, QPixmap, QPainter
-
+import sqlite3
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        my_counter = Management()
+        self.my_counter = Management()
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(960, 460)
@@ -213,22 +213,28 @@ class Ui_MainWindow(object):
         self.mainlabel_face = QtWidgets.QLabel(self.centralwidget)
         self.mainlabel_face.setGeometry(QtCore.QRect(360, 20, 240, 320))
         self.mainlabel_face.setObjectName("Main_Label")
-        print(self.mainlabel_face.size())
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
         # переменная face_im_name создается в классе Management
-        self.face_im_name = 0
+        self.face_im_name = 'sface1'
         name_of_image_face = self.face_im_name
-        pixmap = QPixmap(f'imgs\{name_of_image_face}')
+        pixmap = QPixmap(f'imgs\sface1')
         self.mainlabel_face.setPixmap(pixmap)
 
         # eyes
+        self.mainlabel_eyes = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_eyes.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_eyes.setObjectName("Main_Label")
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_eyes = "eyes3.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_eyes}')
+        self.mainlabel_eyes.setPixmap(pixmap)
 
         # ears
         self.mainlabel_ears = QtWidgets.QLabel(self.centralwidget)
         self.mainlabel_ears.setGeometry(QtCore.QRect(360, 20, 240, 320))
         self.mainlabel_ears.setObjectName("Main_Label")
-        print(self.mainlabel_ears.size())
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
         name_of_image_ears = "ears3.png"
@@ -236,24 +242,54 @@ class Ui_MainWindow(object):
         self.mainlabel_ears.setPixmap(pixmap)
 
         # eyebrows
+        self.mainlabel_eyebrows = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_eyebrows.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_eyebrows.setObjectName("Main_Label")
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_eyebrows = "eyebrows3.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_eyebrows}')
+        self.mainlabel_eyebrows.setPixmap(pixmap)
 
         # mouth
+        self.mainlabel_mouth = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_mouth.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_mouth.setObjectName("Main_Label")
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_mouth = "mouth3.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_mouth}')
+        self.mainlabel_mouth.setPixmap(pixmap)
 
         # nose
+        self.mainlabel_nose = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_nose.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_nose.setObjectName("Main_Label")
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_nose = "nose3.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_nose}')
+        self.mainlabel_nose.setPixmap(pixmap)
 
         # hair
         self.mainlabel_hair = QtWidgets.QLabel(self.centralwidget)
         self.mainlabel_hair.setGeometry(QtCore.QRect(360, 20, 240, 320))
         self.mainlabel_hair.setObjectName("Main_Label")
-        print(self.mainlabel_hair.size())
         # вызов метода, отвечающего за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_hair = 'hair1.png'
+        name_of_image_hair = 'hair2.png'
         pixmap = QPixmap(f'imgs\{name_of_image_hair}')
         self.mainlabel_hair.setPixmap(pixmap)
 
         # attributes
-
+        self.mainlabel_attributes = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_attributes.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_attributes.setObjectName("Main_Label")
+        # вызов метода, отвечающей за инициализацию имени изображения
+        # для этого - отдельный класс
+        name_of_image_attributes = "attributes3.png"
+        pixmap = QPixmap(f'imgs\{name_of_image_attributes}')
+        self.mainlabel_attributes.setPixmap(pixmap)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -292,91 +328,118 @@ class Ui_MainWindow(object):
 
     def counting_face_plus(self):
         self.face_im_name_num += 1
-        print(self.face_im_name_num)
-        # пропиать return в переменную self_-_name_num
+        self.num_face = self.face_im_name_num % 3 + 1
+        print(self.num_face)
+        self.my_counter.definition()
+
+        # прописать return в переменную self_-_name_num
         # эта переменная становится аргументом при инициализации объекта Management
 
     def counting_face_minus(self):
         self.face_im_name_num -= 1
-        print(self.face_im_name_num)
+        self.num_face = self.face_im_name_num % 3 + 1
+        print(self.num_face)
 
     def counting_hair_plus(self):
         self.hair_im_name_num += 1
-        print(self.hair_im_name_num)
-        pass
+        self.num_hair = self.hair_im_name_num % 3 + 1
+        print(self.num_hair)
 
     def counting_hair_minus(self):
         self.hair_im_name_num -= 1
-        print(self.hair_im_name_num)
-        pass
+        self.num_hair = self.hair_im_name_num % 3 + 1
+        print(self.num_hair)
 
     def counting_ears_plus(self):
         self.ears_im_name_num += 1
-        print(self.ears_im_name_num)
+        self.num_ears = self.ears_im_name_num % 3 + 1
+        print(self.num_ears)
 
     def counting_ears_minus(self):
         self.ears_im_name_num -= 1
-        print(self.ears_im_name_num)
+        self.num_ears = self.ears_im_name_num % 3 + 1
+        print(self.num_ears)
 
     def counting_eyes_plus(self):
         self.eyes_im_name_num += 1
-        print(self.eyes_im_name_num)
+        self.num_eyes = self.eyes_im_name_num % 3 + 1
+        print(self.num_eyes)
 
     def counting_eyes_minus(self):
         self.eyes_im_name_num -= 1
-        print(self.eyes_im_name_num)
+        self.num_eyes = self.eyes_im_name_num % 3 + 1
+        print(self.num_eyes)
 
     def counting_eyebrows_plus(self):
         self.eyebrows_im_name_num += 1
-        print(self.eyebrows_im_name_num)
+        self.num_eyebrows = self.eyebrows_im_name_num % 3 + 1
+        print(self.num_eyebrows)
 
     def counting_eyebrows_minus(self):
         self.eyebrows_im_name_num -= 1
-        print(self.eyebrows_im_name_num)
+        self.num_eyebrows = self.eyebrows_im_name_num % 3 + 1
+        print(self.num_eyebrows)
 
     def counting_mouth_plus(self):
         self.mouth_im_name_num += 1
-        print(self.mouth_im_name_num)
+        self.num_mouth = self.mouth_im_name_num % 3 + 1
+        print(self.num_mouth)
 
     def counting_mouth_minus(self):
         self.mouth_im_name_num -= 1
-        print(self.mouth_im_name_num)
+        self.num_mouth = self.mouth_im_name_num % 3 + 1
+        print(self.num_mouth)
 
     def counting_nose_plus(self):
         self.nose_im_name_num += 1
-        print(self.nose_im_name_num)
+        self.num_nose = self.nose_im_name_num % 3 + 1
+        print(self.num_nose)
 
     def counting_nose_minus(self):
         self.nose_im_name_num -= 1
-        print(self.nose_im_name_num)
+        self.num_nose = self.nose_im_name_num % 3 + 1
+        print(self.num_nose)
 
     def counting_attribute_plus(self):
         self.attribute_im_name_num += 1
-        print(self.attribute_im_name_num)
+        self.num_attribute = self.attribute_im_name_num % 3 + 1
+        print(self.num_attribute)
 
     def counting_attribute_minus(self):
         self.attribute_im_name_num -= 1
-        print(self.attribute_im_name_num)
+        self.num_attribute = self.attribute_im_name_num % 3 + 1
+        print(self.num_attribute)
 
 
 class Management:
     def __init__(self):
         self.name = 0
 
-    def definition(self, name, num):
-        if num == 1:
-            self.name += 1
-        elif num == 0:
-            self.name -= 1
-        else:
-            print('defin.error')
-        self.rez = (self.name % 3) + 1
+    def definition(self):
+        # self.image_name = f'{name}, {num}'
+        # con = sqlite3.connect('image_db')
+        # cur = con.cursor()
+        #
+        # result = cur.execute("""SELECT * FROM imgs_name WHERE id like '21' """).fetchall()
+        #
+        # con.close()
+        #
+        # for elem in result:
+        #     print(elem[0])
+        # if num == 1:
+        #     self.name += 1
+        # elif num == 0:
+        #     self.name -= 1
+        # else:
+        #     print('defin.error')
+        # self.rez = (self.name % 3) + 1
         # на основе одного из чисел counter определяется замена / добавление изображения
         # здесь же должна подключаться база данных, чтобы из нее брать названия изображений
         # имя counter + значение числа counter = id изображения
-        print(f'{name},{self.rez}')
-
-        return f'{name},{self.rez}'
+        # print(f'{name},{self.rez}')
+        #
+        # return f'{name},{self.rez}'
+        pass
 
 
 if __name__ == "__main__":
