@@ -12,6 +12,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButton
 from PyQt5.QtGui import QIcon, QPixmap, QPainter
 import sqlite3
+from PIL import Image
+
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -89,6 +91,7 @@ class Ui_MainWindow(object):
         self.pushButton_13 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_13.setGeometry(QtCore.QRect(840, 370, 100, 30))
         self.pushButton_13.setObjectName("pushButton_13")
+        self.pushButton_13.clicked.connect(self.saving)
         # добавить метод для сохранения изображения
 
         # first ears btn
@@ -227,8 +230,8 @@ class Ui_MainWindow(object):
         self.mainlabel_eyes.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_eyes = "eyes3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_eyes}')
+        self.eyes_im_name = "eyes3.png"
+        pixmap = QPixmap(f'imgs\{self.eyes_im_name}')
         self.mainlabel_eyes.setPixmap(pixmap)
 
         # ears
@@ -237,8 +240,8 @@ class Ui_MainWindow(object):
         self.mainlabel_ears.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_ears = "ears3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_ears}')
+        self.ears_im_name = "ears3.png"
+        pixmap = QPixmap(f'imgs\{self.ears_im_name}')
         self.mainlabel_ears.setPixmap(pixmap)
 
         # eyebrows
@@ -247,8 +250,8 @@ class Ui_MainWindow(object):
         self.mainlabel_eyebrows.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_eyebrows = "eyebrows3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_eyebrows}')
+        self.eyebrows_im_name = "eyebrows3.png"
+        pixmap = QPixmap(f'imgs\{self.eyebrows_im_name}')
         self.mainlabel_eyebrows.setPixmap(pixmap)
 
         # mouth
@@ -257,8 +260,8 @@ class Ui_MainWindow(object):
         self.mainlabel_mouth.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_mouth = "mouth3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_mouth}')
+        self.mouth_im_name = "mouth3.png"
+        pixmap = QPixmap(f'imgs\{self.mouth_im_name}')
         self.mainlabel_mouth.setPixmap(pixmap)
 
         # nose
@@ -267,8 +270,8 @@ class Ui_MainWindow(object):
         self.mainlabel_nose.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_nose = "nose3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_nose}')
+        self.nose_im_name = "nose3.png"
+        pixmap = QPixmap(f'imgs\{self.nose_im_name}')
         self.mainlabel_nose.setPixmap(pixmap)
 
         # hair
@@ -277,8 +280,8 @@ class Ui_MainWindow(object):
         self.mainlabel_hair.setObjectName("Main_Label")
         # вызов метода, отвечающего за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_hair = 'hair2.png'
-        pixmap = QPixmap(f'imgs\{name_of_image_hair}')
+        self.hair_im_name = 'hair2.png'
+        pixmap = QPixmap(f'imgs\{self.hair_im_name}')
         self.mainlabel_hair.setPixmap(pixmap)
 
         # attributes
@@ -287,8 +290,8 @@ class Ui_MainWindow(object):
         self.mainlabel_attributes.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        name_of_image_attributes = "attributes3.png"
-        pixmap = QPixmap(f'imgs\{name_of_image_attributes}')
+        self.attribute_im_name = "attributes3.png"
+        pixmap = QPixmap(f'imgs\{self.attribute_im_name}')
         self.mainlabel_attributes.setPixmap(pixmap)
 
         self.retranslateUi(MainWindow)
@@ -410,6 +413,28 @@ class Ui_MainWindow(object):
         self.num_attribute = self.attribute_im_name_num % 3 + 1
         print(self.num_attribute)
 
+    def saving(self):
+        img = Image.new('RGB', (240, 320))
+        rez_face = Image.open(f'imgs\{self.face_im_name}.jpg')
+        rez_eyes = Image.open(f'imgs\{self.eyes_im_name}.png')
+        rez_ears = Image.open(f'imgs\{self.ears_im_name}.png')
+        rez_eyebrows = Image.open(f'imgs\{self.eyebrows_im_name}.png')
+        rez_mouth = Image.open(f'imgs\{self.mouth_im_name}.png')
+        rez_nose = Image.open(f'imgs\{self.nose_im_name}.png')
+        rez_hair = Image.open(f'imgs\{self.hair_im_name}.png')
+        rez_attribute = Image.open(f'imgs\{self.attribute_im_name}.png')
+        img.paste(rez_face, (0, 0))
+        img.paste(rez_eyes, (0, 0), rez_eyes)
+        img.paste(rez_ears, (0, 0), rez_ears)
+        img.paste(rez_eyebrows, (0, 0), rez_eyebrows)
+        img.paste(rez_mouth, (0, 0), rez_mouth)
+        img.paste(rez_nose, (0, 0), rez_nose)
+        img.paste(rez_hair, (0, 0), rez_hair)
+        img.paste(rez_attribute, (0, 0), rez_attribute)
+
+        img.show()
+        # прописать диалоговое окно для сохранения с вводом названия файла
+        img.save("Durazkoe photo.jpg")
 
 class Management:
     def __init__(self):
@@ -426,6 +451,8 @@ class Management:
         #
         # for elem in result:
         #     print(elem[0])
+
+
         # if num == 1:
         #     self.name += 1
         # elif num == 0:
