@@ -220,8 +220,7 @@ class Ui_MainWindow(object):
         # для этого - отдельный класс
         # переменная face_im_name создается в классе Management
         self.face_im_name = 'sface1'
-        name_of_image_face = self.face_im_name
-        pixmap = QPixmap(f'imgs\sface1')
+        pixmap = QPixmap(f'imgs\{self.face_im_name}')
         self.mainlabel_face.setPixmap(pixmap)
 
         # eyes
@@ -260,7 +259,7 @@ class Ui_MainWindow(object):
         self.mainlabel_mouth.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.mouth_im_name = "mouth3.png"
+        self.mouth_im_name = "mouth1.png"
         pixmap = QPixmap(f'imgs\{self.mouth_im_name}')
         self.mainlabel_mouth.setPixmap(pixmap)
 
@@ -270,7 +269,7 @@ class Ui_MainWindow(object):
         self.mainlabel_nose.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.nose_im_name = "nose3.png"
+        self.nose_im_name = "snose1.png"
         pixmap = QPixmap(f'imgs\{self.nose_im_name}')
         self.mainlabel_nose.setPixmap(pixmap)
 
@@ -333,7 +332,9 @@ class Ui_MainWindow(object):
         self.face_im_name_num += 1
         self.num_face = self.face_im_name_num % 3 + 1
         print(self.num_face)
-        self.my_counter.definition()
+        # print(111)
+        # self.my_counter.definition()
+        # print(111222222222)
 
         # прописать return в переменную self_-_name_num
         # эта переменная становится аргументом при инициализации объекта Management
@@ -415,14 +416,13 @@ class Ui_MainWindow(object):
 
     def saving(self):
         img = Image.new('RGB', (240, 320))
-        rez_face = Image.open(f'imgs\{self.face_im_name}.jpg')
-        rez_eyes = Image.open(f'imgs\{self.eyes_im_name}.png')
-        rez_ears = Image.open(f'imgs\{self.ears_im_name}.png')
-        rez_eyebrows = Image.open(f'imgs\{self.eyebrows_im_name}.png')
-        rez_mouth = Image.open(f'imgs\{self.mouth_im_name}.png')
-        rez_nose = Image.open(f'imgs\{self.nose_im_name}.png')
-        rez_hair = Image.open(f'imgs\{self.hair_im_name}.png')
-        rez_attribute = Image.open(f'imgs\{self.attribute_im_name}.png')
+        rez_face = Image.open(f'imgs\sface1.jpg')
+        rez_eyes = Image.open(f'imgs\eyes1.png')
+        rez_ears = Image.open(f'imgs\ears1.png')
+        rez_eyebrows = Image.open(f'imgs\eyebrows1.png')
+        rez_mouth = Image.open(f'imgs\mouth1.png')
+        rez_nose = Image.open(f'imgs\snose1.png')
+        rez_hair = Image.open(f'imgs\hair1.png')
         img.paste(rez_face, (0, 0))
         img.paste(rez_eyes, (0, 0), rez_eyes)
         img.paste(rez_ears, (0, 0), rez_ears)
@@ -430,11 +430,10 @@ class Ui_MainWindow(object):
         img.paste(rez_mouth, (0, 0), rez_mouth)
         img.paste(rez_nose, (0, 0), rez_nose)
         img.paste(rez_hair, (0, 0), rez_hair)
-        img.paste(rez_attribute, (0, 0), rez_attribute)
 
         img.show()
         # прописать диалоговое окно для сохранения с вводом названия файла
-        img.save("Durazkoe photo.jpg")
+        img.save("Durazkoe.jpg")
 
 class Management:
     def __init__(self):
@@ -442,15 +441,14 @@ class Management:
 
     def definition(self):
         # self.image_name = f'{name}, {num}'
-        # con = sqlite3.connect('image_db')
-        # cur = con.cursor()
-        #
-        # result = cur.execute("""SELECT * FROM imgs_name WHERE id like '21' """).fetchall()
-        #
-        # con.close()
-        #
-        # for elem in result:
-        #     print(elem[0])
+        con = sqlite3.connect('image_base.sqlite')
+        cur = con.cursor()
+
+        result = cur.execute("""SELECT * FROM imgs_name WHERE id like '21' """).fetchall()
+        con.close()
+
+        for elem in result:
+            print(elem[0])
 
 
         # if num == 1:
