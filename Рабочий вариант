@@ -18,6 +18,7 @@ from PIL import Image
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.my_counter = Management()
+        self.face_im_name_num = 0
 
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(960, 460)
@@ -31,7 +32,6 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 50, 30, 50))
         self.pushButton.setObjectName("pushButton")
-        self.face_im_name_num = 0
         self.pushButton.clicked.connect(self.counting_face_plus)
 
 
@@ -330,88 +330,106 @@ class Ui_MainWindow(object):
 
     def counting_face_plus(self):
         self.face_im_name_num += 1
-        self.num_face = self.face_im_name_num % 3 + 1
-        print(self.num_face)
+        p_of_n = 1
+        self.num_face = int(str(p_of_n) + str(self.face_im_name_num % 3 + 1))
+        #print(self.num_face)
         # print(111)
-        # self.my_counter.definition()
-        # print(111222222222)
+        self.face_im_name = self.my_counter.definition(self.num_face)
+        print(self.face_im_name)
 
         # прописать return в переменную self_-_name_num
         # эта переменная становится аргументом при инициализации объекта Management
 
     def counting_face_minus(self):
         self.face_im_name_num -= 1
-        self.num_face = self.face_im_name_num % 3 + 1
-        print(self.num_face)
+        p_of_n = 1
+        self.num_face = int(str(p_of_n) + str(self.face_im_name_num % 3 + 1))
+        self.face_im_name = self.my_counter.definition(self.num_face)
+        print(self.face_im_name)
 
     def counting_hair_plus(self):
+        p_of_n = 2
         self.hair_im_name_num += 1
-        self.num_hair = self.hair_im_name_num % 3 + 1
+        self.num_hair = int(str(p_of_n) + str(self.hair_im_name_num % 3 + 1))
+        # self.face_im_name = self.my_counter.definition(self.num_face) докопировать эу строку в другие чести
         print(self.num_hair)
 
     def counting_hair_minus(self):
+        p_of_n = 2
         self.hair_im_name_num -= 1
-        self.num_hair = self.hair_im_name_num % 3 + 1
+        self.num_hair = int(str(p_of_n) + str(self.hair_im_name_num % 3 + 1))
         print(self.num_hair)
 
     def counting_ears_plus(self):
+        p_of_n = 3
         self.ears_im_name_num += 1
-        self.num_ears = self.ears_im_name_num % 3 + 1
+        self.num_ears = int(str(p_of_n) + str(self.ears_im_name_num % 3 + 1))
         print(self.num_ears)
 
     def counting_ears_minus(self):
+        p_of_n = 3
         self.ears_im_name_num -= 1
-        self.num_ears = self.ears_im_name_num % 3 + 1
+        self.num_ears = int(str(p_of_n) + str(self.ears_im_name_num % 3 + 1))
         print(self.num_ears)
 
     def counting_eyes_plus(self):
+        p_of_n = 4
         self.eyes_im_name_num += 1
-        self.num_eyes = self.eyes_im_name_num % 3 + 1
+        self.num_eyes = int(str(p_of_n) + str(self.eyes_im_name_num % 3 + 1))
         print(self.num_eyes)
 
     def counting_eyes_minus(self):
+        p_of_n = 4
         self.eyes_im_name_num -= 1
-        self.num_eyes = self.eyes_im_name_num % 3 + 1
+        self.num_eyes = int(str(p_of_n) + str(self.eyes_im_name_num % 3 + 1))
         print(self.num_eyes)
 
     def counting_eyebrows_plus(self):
+        p_of_n = 5
         self.eyebrows_im_name_num += 1
-        self.num_eyebrows = self.eyebrows_im_name_num % 3 + 1
+        self.num_eyebrows = int(str(p_of_n) + str(self.eyebrows_im_name_num % 3 + 1))
         print(self.num_eyebrows)
 
     def counting_eyebrows_minus(self):
+        p_of_n = 5
         self.eyebrows_im_name_num -= 1
-        self.num_eyebrows = self.eyebrows_im_name_num % 3 + 1
+        self.num_eyebrows = int(str(p_of_n) + str(self.eyebrows_im_name_num % 3 + 1))
         print(self.num_eyebrows)
 
     def counting_mouth_plus(self):
+        p_of_n = 6
         self.mouth_im_name_num += 1
-        self.num_mouth = self.mouth_im_name_num % 3 + 1
+        self.num_mouth = int(str(p_of_n) + str(self.mouth_im_name_num % 3 + 1))
         print(self.num_mouth)
 
     def counting_mouth_minus(self):
+        p_of_n = 6
         self.mouth_im_name_num -= 1
-        self.num_mouth = self.mouth_im_name_num % 3 + 1
+        self.num_mouth = int(str(p_of_n) + str(self.mouth_im_name_num % 3 + 1))
         print(self.num_mouth)
 
     def counting_nose_plus(self):
+        p_of_n = 7
         self.nose_im_name_num += 1
-        self.num_nose = self.nose_im_name_num % 3 + 1
+        self.num_nose = int(str(p_of_n) + str(self.nose_im_name_num % 3 + 1))
         print(self.num_nose)
 
     def counting_nose_minus(self):
+        p_of_n = 7
         self.nose_im_name_num -= 1
-        self.num_nose = self.nose_im_name_num % 3 + 1
+        self.num_nose = int(str(p_of_n) + str(self.nose_im_name_num % 3 + 1))
         print(self.num_nose)
 
     def counting_attribute_plus(self):
+        p_of_n = 8
         self.attribute_im_name_num += 1
-        self.num_attribute = self.attribute_im_name_num % 3 + 1
+        self.num_attribute = int(str(p_of_n) + str(self.attribute_im_name_num % 3 + 1))
         print(self.num_attribute)
 
     def counting_attribute_minus(self):
+        p_of_n = 8
         self.attribute_im_name_num -= 1
-        self.num_attribute = self.attribute_im_name_num % 3 + 1
+        self.num_attribute = int(str(p_of_n) + str(self.attribute_im_name_num % 3 + 1))
         print(self.num_attribute)
 
     def saving(self):
@@ -436,19 +454,28 @@ class Ui_MainWindow(object):
         img.save("Durazkoe.jpg")
 
 class Management:
-    def __init__(self):
-        self.name = 0
+    def definition(self, num):
 
-    def definition(self):
+        self.data = open('data.txt', encoding='utf-8')
+        image_name = None
+        for row in self.data:
+            row_l = row.split('*')
+            number = row_l[0]
+            if int(number) == num:
+                image_name = row_l[1]
+        self.data.close()
+        # print(image_name)
+        return image_name
+
         # self.image_name = f'{name}, {num}'
-        con = sqlite3.connect('image_base.sqlite')
-        cur = con.cursor()
-
-        result = cur.execute("""SELECT * FROM imgs_name WHERE id like '21' """).fetchall()
-        con.close()
-
-        for elem in result:
-            print(elem[0])
+        # con = sqlite3.connect('image_base.sqlite')
+        # cur = con.cursor()
+        #
+        # result = cur.execute("""SELECT * FROM imgs_name WHERE id like '21' """).fetchall()
+        # con.close()
+        #
+        # for elem in result:
+        #     print(elem[0])
 
 
         # if num == 1:
