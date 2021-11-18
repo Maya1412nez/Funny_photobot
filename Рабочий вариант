@@ -237,9 +237,9 @@ class Ui_MainWindow(object):
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
         # переменная face_im_name создается в классе Management
-        self.face_im_name = 'sface1'
-        pixmap = QPixmap(f'imgs\{self.face_im_name}')
-        self.mainlabel_face.setPixmap(pixmap)
+        # self.face_im_name = 'sface1'
+        # pixmap = QPixmap(f'imgs\{self.face_im_name}')
+        # self.mainlabel_face.setPixmap(pixmap)
 
         # eyes
         self.mainlabel_eyes = QtWidgets.QLabel(self.centralwidget)
@@ -247,9 +247,9 @@ class Ui_MainWindow(object):
         self.mainlabel_eyes.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.eyes_im_name = "eyes3.png"
-        pixmap = QPixmap(f'imgs\{self.eyes_im_name}')
-        self.mainlabel_eyes.setPixmap(pixmap)
+        # self.eyes_im_name = "eyes3.png"
+        # pixmap = QPixmap(f'imgs\{self.eyes_im_name}')
+        # self.mainlabel_eyes.setPixmap(pixmap)
 
         # ears
         self.mainlabel_ears = QtWidgets.QLabel(self.centralwidget)
@@ -257,9 +257,9 @@ class Ui_MainWindow(object):
         self.mainlabel_ears.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.ears_im_name = "ears3.png"
-        pixmap = QPixmap(f'imgs\{self.ears_im_name}')
-        self.mainlabel_ears.setPixmap(pixmap)
+        # self.ears_im_name = "ears3.png"
+        # pixmap = QPixmap(f'imgs\{self.ears_im_name}')
+        # self.mainlabel_ears.setPixmap(pixmap)
 
         # eyebrows
         self.mainlabel_eyebrows = QtWidgets.QLabel(self.centralwidget)
@@ -267,9 +267,9 @@ class Ui_MainWindow(object):
         self.mainlabel_eyebrows.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.eyebrows_im_name = "eyebrows3.png"
-        pixmap = QPixmap(f'imgs\{self.eyebrows_im_name}')
-        self.mainlabel_eyebrows.setPixmap(pixmap)
+        # self.eyebrows_im_name = "eyebrows3.png"
+        # pixmap = QPixmap(f'imgs\{self.eyebrows_im_name}')
+        # self.mainlabel_eyebrows.setPixmap(pixmap)
 
         # mouth
         self.mainlabel_mouth = QtWidgets.QLabel(self.centralwidget)
@@ -277,9 +277,9 @@ class Ui_MainWindow(object):
         self.mainlabel_mouth.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.mouth_im_name = "mouth1.png"
-        pixmap = QPixmap(f'imgs\{self.mouth_im_name}')
-        self.mainlabel_mouth.setPixmap(pixmap)
+        # self.mouth_im_name = "mouth1.png"
+        # pixmap = QPixmap(f'imgs\{self.mouth_im_name}')
+        # self.mainlabel_mouth.setPixmap(pixmap)
 
         # nose
         self.mainlabel_nose = QtWidgets.QLabel(self.centralwidget)
@@ -287,9 +287,9 @@ class Ui_MainWindow(object):
         self.mainlabel_nose.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.nose_im_name = "snose1.png"
-        pixmap = QPixmap(f'imgs\{self.nose_im_name}')
-        self.mainlabel_nose.setPixmap(pixmap)
+        # self.nose_im_name = "snose1.png"
+        # pixmap = QPixmap(f'imgs\{self.nose_im_name}')
+        # self.mainlabel_nose.setPixmap(pixmap)
 
         # hair
         self.mainlabel_hair = QtWidgets.QLabel(self.centralwidget)
@@ -297,9 +297,9 @@ class Ui_MainWindow(object):
         self.mainlabel_hair.setObjectName("Main_Label")
         # вызов метода, отвечающего за инициализацию имени изображения
         # для этого - отдельный класс
-        self.hair_im_name = 'hair2.png'
-        pixmap = QPixmap(f'imgs\{self.hair_im_name}')
-        self.mainlabel_hair.setPixmap(pixmap)
+        # self.hair_im_name = 'hair2.png'
+        # pixmap = QPixmap(f'imgs\{self.hair_im_name}')
+        # self.mainlabel_hair.setPixmap(pixmap)
 
         # attributes
         self.mainlabel_attribute = QtWidgets.QLabel(self.centralwidget)
@@ -307,9 +307,18 @@ class Ui_MainWindow(object):
         self.mainlabel_attribute.setObjectName("Main_Label")
         # вызов метода, отвечающей за инициализацию имени изображения
         # для этого - отдельный класс
-        self.attribute_im_name = "attributes3.png"
-        pixmap = QPixmap(f'imgs\{self.attribute_im_name}')
-        self.mainlabel_attribute.setPixmap(pixmap)
+        # self.attribute_im_name = "attributes3.png"
+        # pixmap = QPixmap(f'imgs\{self.attribute_im_name}')
+        # self.mainlabel_attribute.setPixmap(pixmap)
+
+        self.mainlabel_i = QtWidgets.QLabel(self.centralwidget)
+        self.mainlabel_i.setGeometry(QtCore.QRect(360, 20, 240, 320))
+        self.mainlabel_i.setObjectName("Main_Label")
+        # вызов метода, отвечающего за инициализацию имени изображения
+        # для этого - отдельный класс
+        # self.hair_im_name = 'hair2.png'
+        pixmap = QPixmap('imgs\important.png')
+        self.mainlabel_i.setPixmap(pixmap)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -461,14 +470,14 @@ class Ui_MainWindow(object):
 
     def saving(self):
         img = Image.new('RGB', (240, 320))
-        rez_face = Image.open(f'imgs\sface1.jpg')
-        rez_eyes = Image.open(f'imgs\eyes1.png')
-        rez_ears = Image.open(f'imgs\ears1.png')
-        rez_eyebrows = Image.open(f'imgs\eyebrows1.png')
-        rez_mouth = Image.open(f'imgs\mouth1.png')
-        rez_nose = Image.open(f'imgs\snose1.png')
-        rez_hair = Image.open(f'imgs\hair1.png')
-        rez_attribute = Image.open('imgs\sattribute1.png')
+        rez_face = Image.open(self.face_im_name.strip())
+        rez_eyes = Image.open(f'imgs\{self.eyes_im_name.strip()}')
+        rez_ears = Image.open(f'imgs\{self.ears_im_name.strip()}')
+        rez_eyebrows = Image.open(f'imgs\{self.eyebrows_im_name.strip()}')
+        rez_mouth = Image.open(f'imgs\{self.mouth_im_name.strip()}')
+        rez_nose = Image.open(f'imgs\s{self.nose_im_name.strip()}')
+        rez_hair = Image.open(f'imgs\{self.hair_im_name.strip()}')
+        rez_attribute = Image.open(f'imgs\s{self.attribute_im_name.strip()}')
         img.paste(rez_face, (0, 0))
         img.paste(rez_eyes, (0, 0), rez_eyes)
         img.paste(rez_ears, (0, 0), rez_ears)
@@ -483,54 +492,51 @@ class Ui_MainWindow(object):
         img.save("Durazkoe.jpg")
 
     def im_face(self):
-        self.mainlabel_face = QtWidgets.QLabel(self.centralwidget)
-        self.mainlabel_face.setGeometry(QtCore.QRect(360, 20, 240, 320))
-        self.mainlabel_face.setObjectName("Main_Label")
-        # name = self.face_im_name
-        # print(self.face_im_name)
-        pixmap = QPixmap(self.face_im_name)
+        name = self.face_im_name.strip()
+        print(self.face_im_name)
+        pixmap = QPixmap(name)
         self.mainlabel_face.setPixmap(pixmap)
 
     def im_hair(self):
-        name = self.hair_im_name
+        name = self.hair_im_name.strip()
         print(self.hair_im_name) # не выводится
-        pixmap = QPixmap(self.hair_im_name)
+        pixmap = QPixmap(f'imgs\{name}')
         self.mainlabel_hair.setPixmap(pixmap)
 
     def im_eyes(self):
-        name = self.eyes_im_name
+        name = self.eyes_im_name.strip()
         print(self.eyes_im_name) # не выводится
-        pixmap = QPixmap(self.eyes_im_name)
+        pixmap = QPixmap(f'imgs\{name}')
         self.mainlabel_eyes.setPixmap(pixmap)
 
     def im_ears(self):
-        name = self.ears_im_name
+        name = self.ears_im_name.strip()
         print(self.ears_im_name) # не выводится
-        pixmap = QPixmap(self.ears_im_name)
+        pixmap = QPixmap(f'imgs\{name}')
         self.mainlabel_ears.setPixmap(pixmap)
 
     def im_eyebrows(self):
-        name = self.eyebrows_im_name
+        name = self.eyebrows_im_name.strip()
         print(self.eyebrows_im_name) # не выводится
-        pixmap = QPixmap(self.eyebrows_im_name)
+        pixmap = QPixmap(f'imgs\{name}')
         self.mainlabel_eyebrows.setPixmap(pixmap)
 
     def im_mouth(self):
-        name = self.mouth_im_name
+        name = self.mouth_im_name.strip()
         print(self.mouth_im_name) # не выводится
-        pixmap = QPixmap(self.mouth_im_name)
+        pixmap = QPixmap(f'imgs\{name}')
         self.mainlabel_mouth.setPixmap(pixmap)
 
     def im_nose(self):
-        name = self.nose_im_name
+        name = self.nose_im_name.strip()
         print(self.nose_im_name) # не выводится
-        pixmap = QPixmap(self.nose_im_name)
+        pixmap = QPixmap(f'imgs\s{name}')
         self.mainlabel_nose.setPixmap(pixmap)
 
     def im_attribute(self):
-        name = self.attribute_im_name
+        name = self.attribute_im_name.strip()
         print(self.attribute_im_name) # не выводится
-        pixmap = QPixmap(self.attribute_im_name)
+        pixmap = QPixmap(f'imgs\s{name}')
         self.mainlabel_attribute.setPixmap(pixmap)
 
 
